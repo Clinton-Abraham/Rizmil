@@ -1,7 +1,7 @@
 {
-    "name": "Ultroid UserBot",
+    "name": "Rizmil UserBot",
     "description": "Pluggable telegram userbot, made in python using Telethon.",
-    "logo": "https://graph.org/file/031957757a4f6a5191040.jpg",
+    "logo": "https://graph.org/file/20b761095cdd52a7bcc8a.jpg",
     "keywords": [
         "Telethon",
         "telegram",
@@ -9,9 +9,9 @@
         "python",
         "ultroid"
     ],
-    "repository": "https://github.com/TeamUltroid/Ultroid",
-    "website": "https://ultroid.tech",
-    "success_url": "https://t.me/TeamUltroid",
+    "repository": "https://github.com/riizzvbss/Rizmil",
+    "website": "https://t.me/kunthulsupport",
+    "success_url": "https://t.me/kunthulsupport",
     "stack": "container",
     "env": {
         "API_ID": {
