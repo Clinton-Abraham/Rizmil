@@ -26,12 +26,12 @@ for file in glob("strings/strings/*yml"):
 
 
 def get_string(key: str, _res: bool = True) -> Any:
-    lang = ULTConfig.lang or "en"
+    lang = ULTConfig.lang or "id"
     try:
         return languages[lang][key]
     except KeyError:
         try:
-            en_ = languages["en"][key]
+            en_ = languages["id"][key]
             tr = translate(en_, lang_tgt=lang).replace("\ N", "\n")
             if en_.count("{}") != tr.count("{}"):
                 tr = en_
