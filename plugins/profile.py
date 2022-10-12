@@ -5,22 +5,22 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ Perintah Tersedia -
 
-• `{i}setname <first name // last name>`
-    Change your profile name.
+• `{i}sname <nama depan // nama belakang>`
+    Ubah nama profil Anda.
 
-• `{i}setbio <bio>`
-    Change your profile bio.
+• `{i}bio <bio>`
+    Ubah bio profil Anda.
 
-• `{i}setpic <reply to pic>`
-    Change your profile pic.
+• `{i}fp <balas ke pic>`
+    Ubah foto profil Anda.
 
-• `{i}delpfp <n>(optional)`
-    Delete one profile pic, if no value given, else delete n number of pics.
+• `{i}dfp <atau masukan jumlah>`
+    Hapus satu foto profil, jika tidak ada nilai yang diberikan, angka hapus jumlah foto.
 
-• `{i}poto <username>`
-    Upload the photo of Chat/User if Available.
+• `{i}poto <nama pengguna>`
+    Unggah foto Obrolan/Pengguna jika Tersedia.
 """
 import os
 
@@ -34,7 +34,7 @@ TMP_DOWNLOAD_DIRECTORY = "resources/downloads/"
 # bio changer
 
 
-@ultroid_cmd(pattern="setbio( (.*)|$)", fullsudo=True)
+@ultroid_cmd(pattern="bio( (.*)|$)", fullsudo=True)
 async def _(ult):
     ok = await ult.eor("...")
     set = ult.pattern_match.group(1).strip()
@@ -48,7 +48,7 @@ async def _(ult):
 # name changer
 
 
-@ultroid_cmd(pattern="setname ?((.|//)*)", fullsudo=True)
+@ultroid_cmd(pattern="sname ?((.|//)*)", fullsudo=True)
 async def _(ult):
     ok = await ult.eor("...")
     names = ult.pattern_match.group(1).strip()
@@ -71,7 +71,7 @@ async def _(ult):
 # profile pic
 
 
-@ultroid_cmd(pattern="setpic$", fullsudo=True)
+@ultroid_cmd(pattern="fp$", fullsudo=True)
 async def _(ult):
     if not ult.is_reply:
         return await ult.eor("`Reply to a Media..`", time=5)
@@ -93,7 +93,7 @@ async def _(ult):
 # delete profile pic(s)
 
 
-@ultroid_cmd(pattern="delpfp( (.*)|$)", fullsudo=True)
+@ultroid_cmd(pattern="dfp( (.*)|$)", fullsudo=True)
 async def remove_profilepic(delpfp):
     ok = await eor(delpfp, "`...`")
     group = delpfp.text[8:]
