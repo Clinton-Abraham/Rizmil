@@ -32,14 +32,14 @@ from . import _ult_cache
 
 SUP_BUTTONS = [
     [
-        Button.url("• Repo •", url="https://github.com/TeamUltroid/Ultroid"),
-        Button.url("• Support •", url="t.me/UltroidSupportChat"),
+        Button.url("❀ Repo ❀", url="https://github.com/riizzvbss/Rizmil"),
+        Button.url("❀ Support ❀", url="t.me/kunthulsupport"),
     ],
 ]
 
 ofox = "https://graph.org/file/231f0049fcd722824f13b.jpg"
 gugirl = "https://graph.org/file/0df54ae4541abca96aa11.jpg"
-ultpic = "https://graph.org/file/4136aa1650bc9d4109cc5.jpg"
+ultpic = "https://graph.org/file/e99dc35f50e69851093fd.jpg"
 
 apis = [
     "QUl6YVN5QXlEQnNZM1dSdEI1WVBDNmFCX3c4SkF5NlpkWE5jNkZV",
@@ -169,14 +169,14 @@ async def _(e):
 async def repo(e):
     res = [
         await e.builder.article(
-            title="Ultroid Userbot",
-            description="Userbot | Telethon",
+            title="ʀɪᴢᴍɪʟ ᴜꜱᴇʀʙᴏᴛ",
+            description="Ubot | Telethon",
             thumb=wb(ultpic, 0, "image/jpeg", []),
-            text="• **ULTROID USERBOT** •",
+            text="**❀ ʀɪᴢᴍɪʟ ᴜꜱᴇʀʙᴏᴛ** ❀",
             buttons=SUP_BUTTONS,
         ),
     ]
-    await e.answer(res, switch_pm="Ultroid Repo.", switch_pm_param="start")
+    await e.answer(res, switch_pm="Kunthul Repo.", switch_pm_param="start")
 
 
 @in_pattern("go", owner=True)
@@ -199,7 +199,7 @@ async def gsearch(q_event):
                     title=title,
                     description=desc,
                     thumb=wb(gugirl, 0, "image/jpeg", []),
-                    text=f"**Gᴏᴏɢʟᴇ Sᴇᴀʀᴄʜ**\n\n**••Tɪᴛʟᴇ••**\n`{title}`\n\n**••Dᴇsᴄʀɪᴘᴛɪᴏɴ••**\n`{desc}`",
+                    text=f"**Gᴏᴏɢʟᴇ Sᴇᴀʀᴄʜ**\n\n**❀❀Tɪᴛʟᴇ❀❀**\n`{title}`\n\n**❀❀Dᴇsᴄʀɪᴘᴛɪᴏɴ❀❀**\n`{desc}`",
                     link_preview=False,
                     buttons=[
                         [Button.url("Lɪɴᴋ", url=f"{link}")],
@@ -241,7 +241,7 @@ async def _(e):
         title = a.get("title")
         desc = a.get("snippet")
         link = a.get("link")
-        text = f"**••Tɪᴛʟᴇ••** `{title}`\n\n"
+        text = f"**❀❀Tɪᴛʟᴇ❀❀** `{title}`\n\n"
         text += f"**Dᴇsᴄʀɪᴘᴛɪᴏɴ** `{desc}`"
         modss.append(
             await e.builder.article(
@@ -302,9 +302,9 @@ async def _(e):
         name = z["title"]
         desc = unescape(z["summary"])[:300].replace("<br>", "\n") + "..."
         dev = z["developer"]["devId"]
-        text = f"**••Aᴘᴘ Nᴀᴍᴇ••** [{name}]({url})\n"
-        text += f"**••Dᴇᴠᴇʟᴏᴘᴇʀ••** `{dev}`\n"
-        text += f"**••Dᴇsᴄʀɪᴘᴛɪᴏɴ••**\n`{desc}`"
+        text = f"**❀❀Aᴘᴘ Nᴀᴍᴇ❀❀** [{name}]({url})\n"
+        text += f"**❀❀Dᴇᴠᴇʟᴏᴘᴇʀ❀❀** `{dev}`\n"
+        text += f"**❀❀Dᴇsᴄʀɪᴘᴛɪᴏɴ❀❀**\n`{desc}`"
         foles.append(
             await e.builder.article(
                 title=name,
@@ -388,13 +388,13 @@ async def piston_run(event):
     result = await event.builder.article(
         title="Result",
         description=output,
-        text=f"• **Language:**\n`{lang}`\n\n• **Code:**\n`{code}`\n\n• **Result:**\n`{output}`",
+        text=f"❀ **Language:**\n`{lang}`\n\n❀ **Code:**\n`{code}`\n\n❀ **Result:**\n`{output}`",
         thumb=wb(
             "https://graph.org/file/871ee4a481f58117dccc4.jpg", 0, "image/jpeg", []
         ),
         buttons=Button.switch_inline("Fork", query=event.text, same_peer=True),
     )
-    await event.answer([result], switch_pm="• Piston •", switch_pm_param="start")
+    await event.answer([result], switch_pm="❀ Piston ❀", switch_pm_param="start")
 
 
 FDROID_ = {}
@@ -410,7 +410,7 @@ async def do_magic(event):
         )
     if FDROID_.get(match):
         return await event.answer(
-            FDROID_[match], switch_pm=f"• Results for {match}", switch_pm_param="start"
+            FDROID_[match], switch_pm=f"❀ Results for {match}", switch_pm_param="start"
         )
     link = "https://search.f-droid.org/?q=" + match.replace(" ", "+")
     content = await async_searcher(link, re_content=True)
@@ -422,9 +422,9 @@ async def do_magic(event):
             image = "https://graph.org/file/a8dd4a92c5a53a89d0eff.jpg"
         title = dat.find("h4", "package-name").text.strip()
         desc = dat.find("span", "package-summary").text.strip()
-        text = f"• **Name :** `{title}`\n\n"
-        text += f"• **Description :** `{desc}`\n"
-        text += f"• **License :** `{dat.find('span', 'package-license').text.strip()}`"
+        text = f"❀ **Name :** `{title}`\n\n"
+        text += f"❀ **Description :** `{desc}`\n"
+        text += f"❀ **License :** `{dat.find('span', 'package-license').text.strip()}`"
         imga = wb(image, 0, "image/jpeg", [])
         ress.append(
             await event.builder.article(
@@ -437,9 +437,9 @@ async def do_magic(event):
                 include_media=True,
                 buttons=[
                     Button.inline(
-                        "• Download •", "fd" + dat["href"].split("packages/")[-1]
+                        "❀ Download ❀", "fd" + dat["href"].split("packages/")[-1]
                     ),
-                    Button.switch_inline("• Share •", query=event.text),
+                    Button.switch_inline("❀ Share ❀", query=event.text),
                 ],
             )
         )
@@ -467,7 +467,7 @@ async def twitter_search(event):
     try:
         return await event.answer(
             _ult_cache["twitter"][match],
-            switch_pm="• Twitter Search •",
+            switch_pm="❀ Twitter Search ❀",
             switch_pm_param="start",
         )
     except KeyError:
@@ -483,14 +483,14 @@ async def twitter_search(event):
         thumb = wb(user["profile_image_url_https"], 0, "image/jpeg", [])
         if user.get("profile_banner_url"):
             url = user["profile_banner_url"]
-            text = f"[\xad]({url})• **Name :** `{user['name']}`\n"
+            text = f"[\xad]({url})❀ **Name :** `{user['name']}`\n"
         else:
-            text = f"• **Name :** `{user['name']}`\n"
-        text += f"• **Description :** `{user['description']}`\n"
-        text += f"• **Username :** `@{user['screen_name']}`\n"
-        text += f"• **Followers :** `{user['followers_count']}`    • **Following :** `{user['friends_count']}`\n"
+            text = f"❀ **Name :** `{user['name']}`\n"
+        text += f"❀ **Description :** `{user['description']}`\n"
+        text += f"❀ **Username :** `@{user['screen_name']}`\n"
+        text += f"❀ **Followers :** `{user['followers_count']}`    ❀ **Following :** `{user['friends_count']}`\n"
         pro_ = "https://twitter.com/" + user["screen_name"]
-        text += f"• **Link :** [Click Here]({pro_})\n_"
+        text += f"❀ **Link :** [Click Here]({pro_})\n_"
         reso.append(
             await event.builder.article(
                 title=user["name"],
@@ -530,11 +530,11 @@ async def savn_s(event):
     res = []
     for song in results:
         thumb = wb(song["image"], 0, "image/jpeg", [])
-        text = f"• **Title :** {song['title']}"
-        text += f"\n• **Year :** {song['year']}"
-        text += f"\n• **Lang :** {song['language']}"
-        text += f"\n• **Artist :** {song['artists']}"
-        text += f"\n• **Release Date :** {song['release_date']}"
+        text = f"\n❀ **Title :** {song['title']}"
+        text += f"\n❀ **Year :** {song['year']}"
+        text += f"\n❀ **Lang :** {song['language']}"
+        text += f"\n❀ **Artist :** {song['artists']}"
+        text += f"\n❀ **Release Date :** {song['release_date']}"
         res.append(
             await event.builder.article(
                 title=song["title"],
@@ -569,13 +569,13 @@ async def inline_tl(ult):
     try:
         match = ult.text.split(maxsplit=1)[1]
     except IndexError:
-        text = f"**Telegram TlObjects Searcher.**\n__(Don't use if you don't know what it is!)__\n\n• Example Usage\n`@{asst.me.username} tl GetFullUserRequest`"
+        text = f"**Telegram TlObjects Searcher.**\n__(Don't use if you don't know what it is!)__\n\n❀ Example Usage\n`@{asst.me.username} tl GetFullUserRequest`"
         return await ult.answer(
             [
                 await ult.builder.article(
                     title="How to Use?",
-                    description="Tl Searcher by Ultroid",
-                    url="https://t.me/TeamUltroid",
+                    description="Tl Searcher by Userbot",
+                    url="https://t.me/kunthulsupport",
                     text=text,
                 )
             ],
@@ -598,7 +598,7 @@ async def inline_tl(ult):
                 await ult.builder.article(
                     title=key.__name__,
                     description=tyyp,
-                    url="https://t.me/TeamUltroid",
+                    url="https://t.me/kunthulsupport",
                     text=text[:4000],
                 )
             )
@@ -610,12 +610,12 @@ InlinePlugin.update(
     {
         "Pʟᴀʏ Sᴛᴏʀᴇ Aᴘᴘs": "app telegram",
         "Mᴏᴅᴅᴇᴅ Aᴘᴘs": "mods minecraft",
-        "Sᴇᴀʀᴄʜ Oɴ Gᴏᴏɢʟᴇ": "go TeamUltroid",
+        "Sᴇᴀʀᴄʜ Oɴ Gᴏᴏɢʟᴇ": "go ʀɪᴢᴍɪʟ ᴜꜱᴇʀʙᴏᴛ",
         "WʜɪSᴘᴇʀ": "wspr @username Hello🎉",
         "YᴏᴜTᴜʙᴇ Dᴏᴡɴʟᴏᴀᴅᴇʀ": "yt Ed Sheeran Perfect",
-        "Piston Eval": "run javascript console.log('Hello Ultroid')",
+        "Piston Eval": "run javascript console.log('Hello ʀɪᴢᴍɪʟ ᴜꜱᴇʀʙᴏᴛ')",
         "OʀᴀɴɢᴇFᴏx🦊": "ofox beryllium",
-        "Tᴡɪᴛᴛᴇʀ Usᴇʀ": "twitter theultroid",
+        "Tᴡɪᴛᴛᴇʀ Usᴇʀ": "twitter ʀɪᴢᴍɪʟ ᴜꜱᴇʀʙᴏᴛ",
         "Fᴅʀᴏɪᴅ Sᴇᴀʀᴄʜ": "fdroid telegram",
         "Sᴀᴀᴠɴ sᴇᴀʀᴄʜ": "saavn",
         "Tʟ Sᴇᴀʀᴄʜ": "tl",
