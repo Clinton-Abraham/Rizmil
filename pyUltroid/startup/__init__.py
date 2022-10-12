@@ -43,13 +43,13 @@ if run_as_module:
     from ..version import __version__ as __pyUltroid__
     from ..version import ultroid_version
 
-    file = f"ultroid{sys.argv[6]}.log" if len(sys.argv) > 6 else "ultroid.log"
+    file = f"rizmil{sys.argv[6]}.log" if len(sys.argv) > 6 else "rizmil.log"
 
     if os.path.exists(file):
         os.remove(file)
 
     HOSTED_ON = where_hosted()
-    LOGS = getLogger("pyUltLogs")
+    LOGS = getLogger("RizmilLogs")
     TelethonLogger = getLogger("Telethon")
     TelethonLogger.setLevel(INFO)
 
@@ -89,9 +89,9 @@ if run_as_module:
     )
 
     LOGS.info(f"Python version - {platform.python_version()}")
-    LOGS.info(f"py-Ultroid Version - {__pyUltroid__}")
+    LOGS.info(f"Rizmil Userbot Version - {__pyUltroid__}")
     LOGS.info(f"Telethon Version - {__version__} [Layer: {LAYER}]")
-    LOGS.info(f"Ultroid Version - {ultroid_version} [{HOSTED_ON}]")
+    LOGS.info(f"Build Version - {ultroid_version} [{HOSTED_ON}]")
 
     try:
         from safety.tools import *
