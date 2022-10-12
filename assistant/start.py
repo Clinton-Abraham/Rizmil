@@ -29,36 +29,36 @@ if Owner_info_msg is None:
 
 **Message Forwards** - {udB.get_key("PMBOT")}
 
-**Ultroid [v{ultroid_version}](https://github.com/TeamUltroid/Ultroid), powered by @TeamUltroid**
+**ʀɪᴢᴍɪʟ ᴜꜱᴇʀʙᴏᴛ [v{ultroid_version}](https://github.com/riizzvbss/Rizmil), powered by {OWNER_NAME}
 """
 
 
 _settings = [
     [
-        Button.inline("API Kᴇʏs", data="cbs_apiset"),
-        Button.inline("Pᴍ Bᴏᴛ", data="cbs_chatbot"),
+        Button.inline("API KEYS", data="cbs_apiset"),
+        Button.inline("PM BOT", data="cbs_chatbot"),
     ],
     [
-        Button.inline("Aʟɪᴠᴇ", data="cbs_alvcstm"),
-        Button.inline("PᴍPᴇʀᴍɪᴛ", data="cbs_ppmset"),
+        Button.inline("ALIVE", data="cbs_alvcstm"),
+        Button.inline("PM PERMIT", data="cbs_ppmset"),
     ],
     [
-        Button.inline("Fᴇᴀᴛᴜʀᴇs", data="cbs_otvars"),
-        Button.inline("VC Sᴏɴɢ Bᴏᴛ", data="cbs_vcb"),
+        Button.inline("FITUR", data="cbs_otvars"),
+        Button.inline("VC LAGU BOT", data="cbs_vcb"),
     ],
-    [Button.inline("« Bᴀᴄᴋ", data="mainmenu")],
+    [Button.inline("« KEMBALI", data="mainmenu")],
 ]
 
 _start = [
     [
-        Button.inline("Lᴀɴɢᴜᴀɢᴇ 🌐", data="lang"),
-        Button.inline("Sᴇᴛᴛɪɴɢs ⚙️", data="setter"),
+        Button.inline("BAHASA ", data="lang"),
+        Button.inline("PENGATURAN ", data="setter"),
     ],
     [
-        Button.inline("Sᴛᴀᴛs ✨", data="stat"),
-        Button.inline("Bʀᴏᴀᴅᴄᴀsᴛ 📻", data="bcast"),
+        Button.inline("STATUS", data="stat"),
+        Button.inline("SIARAN ", data="bcast"),
     ],
-    [Button.inline("TɪᴍᴇZᴏɴᴇ 🌎", data="tz")],
+    [Button.inline("ZONA WAKTU ", data="tz")],
 ]
 
 
@@ -68,10 +68,10 @@ async def own(event):
         mention=event.sender.mention, me=inline_mention(ultroid_bot.me)
     )
     if custom_info:
-        msg += "\n\n• Powered by **@TeamUltroid**"
+        msg += "Powered by Rɪᴢᴍɪʟ Uꜱᴇʀʙᴏᴛ"
     await event.edit(
         msg,
-        buttons=[Button.inline("Close", data="closeit")],
+        buttons=[Button.inline("Menutup", data="closeit")],
         link_preview=False,
     )
 
@@ -91,7 +91,7 @@ async def ultroid(event):
         add_user(event.sender_id)
         kak_uiw = udB.get_key("OFF_START_LOG")
         if not kak_uiw or kak_uiw != True:
-            msg = f"{inline_mention(event.sender)} `[{event.sender_id}]` started your [Assistant bot](@{asst.me.username})."
+            msg = f"{inline_mention(event.sender)} `[{event.sender_id}]` mulai Anda [Assistant bot](@{asst.me.username})."
             buttons = [[Button.inline("Info", "itkkstyo")]]
             if event.sender.username:
                 buttons[0].append(
@@ -110,9 +110,9 @@ async def ultroid(event):
             await get_stored_file(event, args)
         if not udB.get_key("STARTMSG"):
             if udB.get_key("PMBOT"):
-                ok = "You can contact my master using this bot!!\n\nSend your Message, I will Deliver it To Master."
+                ok = "Anda dapat menghubungi tuan saya menggunakan bot ini!!\n\nKirim Pesan Anda, saya akan Mengirimkannya Kepada Guru."
             await event.reply(
-                f"Hey there {mention}, this is Ultroid Assistant of {me}!\n\n{ok}",
+                f"Hei disana {mention}, ini adalah Asisten Kunthul-Userbot dari {me}!\n\n{ok}",
                 file=udB.get_key("STARTMEDIA"),
                 buttons=[Button.inline("Info.", data="ownerinfo")]
                 if Owner_info_msg
@@ -130,7 +130,7 @@ async def ultroid(event):
         name = get_display_name(event.sender)
         if args == "set":
             await event.reply(
-                "Choose from the below options -",
+                "Pilih dari opsi di bawah ini -",
                 buttons=_settings,
             )
         elif args:
@@ -144,7 +144,7 @@ async def ultroid(event):
 
 @callback("itkkstyo", owner=True)
 async def ekekdhdb(e):
-    text = f"When New Visitor will visit your Assistant Bot. You will get this log message!\n\nTo Disable : {HNDLR}setdb OFF_START_LOG True"
+    text = f"Kapan Pengunjung Baru akan mengunjungi Bot Asisten Anda. Anda akan mendapatkan pesan log ini!\n\nUntuk Menonaktifkan : {HNDLR}setdb OFF_START_LOG True"
     await e.answer(text, alert=True)
 
 
@@ -159,7 +159,7 @@ async def ultroid(event):
 @callback("stat", owner=True)
 async def botstat(event):
     ok = len(get_all_users("BOT_USERS"))
-    msg = """Ultroid Assistant - Stats
+    msg = """Rizmil Userbot Assistant - Stats
 Total Users - {}""".format(
         ok,
     )
@@ -169,7 +169,7 @@ Total Users - {}""".format(
 @callback("bcast", owner=True)
 async def bdcast(event):
     ok = get_all_users("BOT_USERS")
-    await event.edit(f"• Broadcast to {len(ok)} users.")
+    await event.edit(f"✿ Broadcast to {len(ok)} users.")
     async with event.client.conversation(OWNER_ID) as conv:
         await conv.send_message(
             "Enter your broadcast message.\nUse /cancel to stop the broadcast.",
@@ -201,7 +201,7 @@ Total Users in Bot - {len(ok)}
 @callback("setter", owner=True)
 async def setting(event):
     await event.edit(
-        "Choose from the below options -",
+        "Pilih dari opsi di bawah ini ",
         buttons=_settings,
     )
 
@@ -211,28 +211,28 @@ async def timezone_(event):
     await event.delete()
     pru = event.sender_id
     var = "TIMEZONE"
-    name = "Timezone"
+    name = "Zona waktu"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            "Send Your TimeZone From This List [Check From Here](http://www.timezoneconverter.com/cgi-bin/findzone.tzc)"
+            "Kirim Zona Waktu Anda Dari Daftar Ini [Periksa Dari Sini](https://www.timezoneconverter.com/cgi-bin/findzone.tzc)"
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
         themssg = response.message.message
         if themssg == "/cancel":
             return await conv.send_message(
-                "Cancelled!!",
+                "Dibatalkan!!",
                 buttons=get_back_button("mainmenu"),
             )
         try:
             tz(themssg)
             await setit(event, var, themssg)
             await conv.send_message(
-                f"{name} changed to {themssg}\n",
+                f"{name} berubah menjadi {themssg}\n",
                 buttons=get_back_button("mainmenu"),
             )
         except BaseException:
             await conv.send_message(
-                "Wrong TimeZone, Try again",
+                "Zona Waktu Salah, Coba lagi",
                 buttons=get_back_button("mainmenu"),
             )
