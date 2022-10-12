@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./resources/extras/rizmil.jpg" alt="Rizmil Logo">
+  <img src="./resources/extras/inline.jpg" alt="Rizmil Logo">
 </p>
 <h1 align="center">
   <b>ʀɪᴢᴍɪʟ ᴜꜱᴇʀʙᴏᴛ</b>
