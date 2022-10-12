@@ -5,48 +5,48 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
-✘ Commands Available -
+✘ Perintah Tersedia -
 
-• `{i}kickme` : Leaves the group.
+• `{i}kickme` : Meninggalkan grup.
 
-• `{i}date` : Show Calender.
+• `{i}date` : Tampilkan Kalender.
 
 • `{i}listreserved`
-    List all usernames (channels/groups) you own.
+    Daftar semua nama pengguna (saluran/grup) yang Anda miliki.
 
-• `{i}stats` : See your profile stats.
+• `{i}stats` : Lihat statistik profil Anda.
 
-• `{i}paste` - `Include long text / Reply to text file.`
+• `{i}paste` - `Sertakan teks panjang / Balas ke file teks.`
 
-• `{i}info <username/userid/chatid>`
-    Reply to someone's msg.
+• `{i}info <nama pengguna/userid/chatid>`
+    Membalas pesan seseorang.
 
-• `{i}invite <username/userid>`
-    Add user to the chat.
+• `{i}invite <nama pengguna/nama pengguna>`
+    Tambahkan pengguna ke obrolan.
 
-• `{i}rmbg <reply to pic>`
-    Remove background from that picture.
+• `{i}rmbg <balas ke gambar>`
+    Hapus latar belakang dari gambar itu.
 
-• `{i}telegraph <reply to media/text>`
-    Upload media/text to telegraph.
+• `{i}tg <membalas media/teks>`
+    Unggah media/teks ke telegraf.
 
-• `{i}json <reply to msg>`
-    Get the json encoding of the message.
+• `{i}json <membalas pesan>`
+    Dapatkan pengkodean json dari pesan.
 
-• `{i}suggest <reply to message> or <poll title>`
-    Create a Yes/No poll for the replied suggestion.
+• `{i}suggest <balas pesan> atau <judul jajak pendapat>`
+    Buat polling Ya/Tidak untuk saran yang dibalas.
 
-• `{i}ipinfo <ipAddress>` : Get info about that IP address.
+• `{i}ipinfo <ipAddress>` : Dapatkan info tentang alamat IP tersebut.
 
-• `{i}cpy <reply to message>`
-   Copy the replied message, with formatting. Expires in 24hrs.
+• `{i}cpy <membalas pesan>`
+   Salin pesan balasan, dengan format. Kadaluarsa dalam 24 jam.
 • `{i}pst`
-   Paste the copied message, with formatting.
+   Tempel pesan yang disalin, dengan pemformatan.
 
-• `{i}thumb <reply file>` : Download the thumbnail of the replied file.
+• `{i}thumb <file balasan>` : Mengunduh thumbnail dari file yang dibalas.
 
-• `{i}getmsg <message link>`
-  Get messages from chats with forward/copy restrictions.
+• `{i}getmsg <tautan pesan>`
+  Dapatkan pesan dari obrolan dengan batasan penerusan/salin.
 """
 
 import calendar
@@ -463,11 +463,11 @@ async def abs_rmbg(event):
 
 
 @ultroid_cmd(
-    pattern="telegraph( (.*)|$)",
+    pattern="tg( (.*)|$)",
 )
 async def telegraphcmd(event):
     xx = await event.eor(get_string("com_1"))
-    match = event.pattern_match.group(1).strip() or "Ultroid"
+    match = event.pattern_match.group(1).strip() or "kunth"
     reply = await event.get_reply_message()
     if not reply:
         return await xx.eor("`Reply to Message.`")
