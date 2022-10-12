@@ -16,9 +16,8 @@ from io import BytesIO
 from json.decoder import JSONDecodeError
 from traceback import format_exc
 
-from .. import *
+from .. import LOGS
 from ..exceptions import DependencyMissingError
-from .helper import bash, run_async
 
 try:
     import certifi
@@ -40,6 +39,9 @@ except ImportError:
     requests = None
 from telethon import Button
 from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
+
+from .. import *
+from .helper import bash, run_async
 
 if run_as_module:
     from ..dB.filestore_db import get_stored_msg, store_msg
@@ -411,7 +413,7 @@ async def get_chatbot_reply(message):
 
     chatbot_base = "https://kukiapi.xyz/api/apikey=ULTROIDUSERBOT/Ultroid/{}/message={}"
     req_link = chatbot_base.format(
-        ultroid_bot.me.first_name or "ultroid user",
+        ultroid_bot.me.first_name or "sad user",
         message,
     )
     try:
@@ -528,7 +530,7 @@ def telegraph_client():
     profile_url = (
         f"https://t.me/{ultroid_bot.me.username}"
         if ultroid_bot.me.username
-        else "https://t.me/TeamUltroid"
+        else "https://t.me/kunthulsupport"
     )
     try:
         TelegraphClient.create_account(
@@ -537,7 +539,7 @@ def telegraph_client():
     except Exception as er:
         if "SHORT_NAME_TOO_LONG" in str(er):
             TelegraphClient.create_account(
-                short_name="ultroiduser", author_name=gd_name, author_url=profile_url
+                short_name="saduser", author_name=gd_name, author_url=profile_url
             )
         else:
             LOGS.exception(er)
@@ -560,7 +562,7 @@ def make_html_telegraph(title, html=""):
 async def Carbon(
     code,
     base_url="https://carbonara-42.herokuapp.com/api/cook",
-    file_name="ultroid",
+    file_name="kunth",
     download=False,
     rayso=False,
     **kwargs,
@@ -570,7 +572,7 @@ async def Carbon(
         kwargs["text"] = code
         kwargs["theme"] = kwargs.get("theme", "meadow")
         kwargs["darkMode"] = kwargs.get("darkMode", True)
-        kwargs["title"] = kwargs.get("title", "Ultroid")
+        kwargs["title"] = kwargs.get("title", "kunth")
     else:
         kwargs["code"] = code
     con = await async_searcher(base_url, post=True, json=kwargs, re_content=True)
