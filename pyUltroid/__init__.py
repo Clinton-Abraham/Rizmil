@@ -13,8 +13,8 @@ from .version import __version__
 run_as_module = False
 
 class ULTConfig:
-    lang = "en"
-    thumb = "resources/extras/ultroid.jpg"
+    lang = "id"
+    thumb = "resources/extras/logo.jpg"
 
 if sys.argv[0] == "-m":
     run_as_module = True
@@ -66,7 +66,7 @@ if sys.argv[0] == "-m":
             validate_session(Var.SESSION, LOGS),
             udB=udB,
             app_version=ultroid_version,
-            device_model="Ultroid",
+            device_model="Rizmil Userbot",
         )
         ultroid_bot.run_in_loop(autobot())
 
@@ -92,10 +92,10 @@ if sys.argv[0] == "-m":
     DUAL_HNDLR = udB.get_key("DUAL_HNDLR") or "/"
     SUDO_HNDLR = udB.get_key("SUDO_HNDLR") or HNDLR
 else:
-    print("pyUltroid 2022 © TeamUltroid")
+    print("Rizmil Userbot")
 
     from logging import getLogger
 
-    LOGS = getLogger("pyUltroid")
+    LOGS = getLogger("Rizmil Userbot")
 
     ultroid_bot = asst = udB = vcClient = None
