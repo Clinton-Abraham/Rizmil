@@ -152,7 +152,7 @@ async def autobot():
     if who.username:
         username = who.username + "_bot"
     else:
-        username = "ultroid_" + (str(who.id))[5:] + "_bot"
+        username = "rizmil_" + (str(who.id))[5:] + "_bot"
     bf = "@BotFather"
     await ultroid_bot(UnblockRequest(bf))
     await ultroid_bot.send_message(bf, "/cancel")
@@ -187,7 +187,7 @@ async def autobot():
     await ultroid_bot.send_read_acknowledge("botfather")
     if isdone.startswith("Sorry,"):
         ran = randint(1, 100)
-        username = "ultroid_" + (str(who.id))[6:] + str(ran) + "_bot"
+        username = "rizmil_" + (str(who.id))[6:] + str(ran) + "_bot"
         await ultroid_bot.send_message(bf, username)
         await asyncio.sleep(1)
         isdone = (await ultroid_bot.get_messages(bf, limit=1))[0].text
@@ -236,8 +236,8 @@ async def autopilot():
         try:
             r = await ultroid_bot(
                 CreateChannelRequest(
-                    title="My Ultroid Logs",
-                    about="My Ultroid Log Group\n\n Join @TeamUltroid",
+                    title="Rizmil Userbot Log",
+                    about="Rizmil Userbot Log -> Join @kunthulsupport",
                     megagroup=True,
                 ),
             )
@@ -303,7 +303,7 @@ async def autopilot():
                 LOGS.exception(er)
     if isinstance(chat.photo, ChatPhotoEmpty):
         photo = await download_file(
-            "https://graph.org/file/27c6812becf6f376cbb10.jpg", "channelphoto.jpg"
+            "https://graph.org/file/e99dc35f50e69851093fd.jpg", "channelphoto.jpg"
         )
         ll = await ultroid_bot.upload_file(photo)
         try:
@@ -329,14 +329,14 @@ async def customize():
         LOGS.info("Customising Ur Assistant Bot in @BOTFATHER")
         UL = f"@{asst.me.username}"
         if not ultroid_bot.me.username:
-            sir = ultroid_bot.me.first_name
+            sir = ultroid_bot.me.username
         else:
             sir = f"@{ultroid_bot.me.username}"
         file = random.choice(
             [
-                "https://graph.org/file/92cd6dbd34b0d1d73a0da.jpg",
-                "https://graph.org/file/a97973ee0425b523cdc28.jpg",
-                "resources/extras/ultroid_assistant.jpg",
+                "https://graph.org/file/e99dc35f50e69851093fd.jpg",
+                "https://graph.org/file/e99dc35f50e69851093fd.jpg",
+                "resources/extras/logo.jpg",
             ]
         )
         if not os.path.exists(file):
@@ -372,7 +372,7 @@ async def customize():
         await asyncio.sleep(1)
         await ultroid_bot.send_message(
             "botfather",
-            f"✨ Powerful Ultroid Assistant Bot ✨\n✨ Master ~ {sir} ✨\n\n✨ Powered By ~ @TeamUltroid ✨",
+            f"✨ Powerful Rizmil Userbot Assistant ✨\n✨ Master ~ {sir} ✨",
         )
         await asyncio.sleep(2)
         await msg.edit("Completed **Auto Customisation** at @BotFather.")
@@ -397,9 +397,9 @@ async def plug(plugin_channels):
     if not os.path.exists("addons/__init__.py"):
         with open("addons/__init__.py", "w") as f:
             f.write("from plugins import *\n\nbot = ultroid_bot")
-    LOGS.info("• Loading Plugins from Plugin Channel(s) •")
+    LOGS.info("❀ Loading Plugins from Plugin Channel(s) ❀")
     for chat in plugin_channels:
-        LOGS.info(f"{'•'*4} {chat}")
+        LOGS.info(f"{'❀'*4} {chat}")
         try:
             async for x in ultroid_bot.iter_messages(
                 chat, search=".py", filter=InputMessagesFilterDocument, wait_time=10
@@ -413,7 +413,7 @@ async def plug(plugin_channels):
                 try:
                     load_addons(plugin)
                 except Exception as e:
-                    LOGS.info(f"Ultroid - PLUGIN_CHANNEL - ERROR - {plugin}")
+                    LOGS.info(f"RIZMIL - PLUGIN_CHANNEL - ERROR - {plugin}")
                     LOGS.exception(e)
                     os.remove(plugin)
         except Exception as er:
@@ -430,13 +430,13 @@ async def ready():
     chat_id = udB.get_key("LOG_CHANNEL")
     spam_sent = None
     if not udB.get_key("INIT_DEPLOY"):  # Detailed Message at Initial Deploy
-        MSG = """🎇 **Thanks for Deploying Ultroid Userbot!**
-• Here, are the Some Basic stuff from, where you can Know, about its Usage."""
-        PHOTO = "https://graph.org/file/54a917cc9dbb94733ea5f.jpg"
-        BTTS = Button.inline("• Click to Start •", "initft_2")
+        MSG = """**Thanks for Deploying Rizmil Userbot !**
+❀ Here, are the Some Basic stuff from, where you can Know, about its Usage."""
+        PHOTO = "https://graph.org/file/e99dc35f50e69851093fd.jpg"
+        BTTS = Button.inline("❀ Click to Start ❀", "initft_2")
         udB.set_key("INIT_DEPLOY", "Done")
     else:
-        MSG = f"**Ultroid has been deployed!**\n➖➖➖➖➖➖➖➖➖➖\n**UserMode**: {inline_mention(ultroid_bot.me)}\n**Assistant**: @{asst.me.username}\n➖➖➖➖➖➖➖➖➖➖\n**Support**: @TeamUltroid\n➖➖➖➖➖➖➖➖➖➖"
+        MSG = f"**Rizmil Userbot has been deployed!**\n➖➖➖➖➖➖➖➖➖➖\n**UserMode**: {inline_mention(ultroid_bot.me)}\n**Assistant**: @{asst.me.username}\n➖➖➖➖➖➖➖➖➖➖"
         BTTS, PHOTO = None, None
         prev_spam = udB.get_key("LAST_UPDATE_LOG_SPAM")
         if prev_spam:
