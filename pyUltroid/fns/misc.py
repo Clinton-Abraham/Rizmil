@@ -165,8 +165,8 @@ async def allcmds(event, telegraph):
         for zz in LIST[z]:
             txt += HNDLR + zz + "\n"
         txt += "\n\n"
-    t = telegraph.create_page(title="Ultroid All Cmds", content=[txt])
-    await eor(event, f"All Ultroid Cmds : [Click Here]({t['url']})", link_preview=False)
+    t = telegraph.create_page(title="Sadboy All Cmds", content=[txt])
+    await eor(event, f"All Sadboy Cmds : [Click Here]({t['url']})", link_preview=False)
 
 
 async def ReTrieveFile(input_file_name):
@@ -183,7 +183,7 @@ async def ReTrieveFile(input_file_name):
             if "image" not in contentType:
                 return False, (await out.json())
 
-            name = check_filename("ult-rmbg.png")
+            name = check_filename("sad-rmbg.png")
             file = await aiofiles.open(name, "wb")
             await file.write(await out.read())
             await file.close()
