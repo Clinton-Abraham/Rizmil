@@ -85,7 +85,7 @@ def telethon_session():
             try:
                 ultroid.send_message(
                     "me",
-                    f"**ULTROID** `SESSION`:\n\n`{ultroid.session.save()}`\n\n**Do not share this anywhere!**",
+                    f"**RIZMIL** `SESSION`:\n\n`{ultroid.session.save()}`\n\n**Do not share this anywhere!**",
                 )
                 print(
                     "Your SESSION has been generated. Check your Telegram saved messages!"
@@ -109,7 +109,7 @@ def telethon_session():
     except Exception as er:
         print("Unexpected Error Occurred while Creating Session")
         print(er)
-        print("If you think It as a Bug, Report to @UltroidSupportChat.\n\n")
+        print("If you think It as a Bug, Report to @kunthulsupport.\n\n")
 
 
 def pyro_session():
@@ -133,7 +133,7 @@ def pyro_session():
         ss = pyro.export_session_string()
         pyro.send_message(
             "me",
-            f"`{ss}`\n\nAbove is your Pyrogram Session String for @TheUltroid. **DO NOT SHARE it.**",
+            f"`{ss}`\n\nAbove is your Pyrogram Session String for @Rizmil. **DO NOT SHARE it.**",
         )
         print("Session has been sent to your saved messages!")
         exit(0)
@@ -145,7 +145,7 @@ def main():
     try:
         type_of_ss = int(
             input(
-                "\nUltroid supports both telethon as well as pyrogram sessions.\n\nWhich session do you want to generate?\n1. Telethon Session.\n2. Pyrogram Session.\n\nEnter choice:  "
+                "\nRizmil supports both telethon as well as pyrogram sessions.\n\nWhich session do you want to generate?\n1. Telethon Session.\n2. Pyrogram Session.\n\nEnter choice:  "
             )
         )
     except Exception as e:
