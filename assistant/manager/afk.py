@@ -46,11 +46,11 @@ async def go_afk(event):
             {event.chat_id: {event.sender_id: {"reason": reason, "time": time_}}}
         )
     mention = inline_mention(sender)
-    msg = f"**{mention} went AFK Now!**"
+    msg = f"**{mention} Sedang Depresi Sekarang!**"
     if reason and not isinstance(reason, str):
         await event.reply(reason)
     else:
-        msg += f"\n\n**Reason : ** `{reason}`"
+        msg += f"\n\n**Alasan : ** `{reason}`"
     await event.reply(msg)
 
 
@@ -66,7 +66,7 @@ async def make_change(event):
         name = get_display_name(event.sender)
         cha_send = chat_[event.sender_id]
         time_ = time_formatter((dt.now() - cha_send["time"]).seconds * 1000)
-        msg = f"**{name}** is No Longer AFK!\n**Was AFK for** {time_}"
+        msg = f"**{name}** Kok Online ? Udah Depresi nya ?\n**Terakhir dilihat** {time_}"
         await event.reply(msg)
         del chat_[event.sender_id]
         if not chat_:
@@ -79,9 +79,9 @@ async def make_change(event):
             s_der = chat_[replied.sender_id]
             res_ = s_der["reason"]
             time_ = time_formatter((dt.now() - s_der["time"]).seconds * 1000)
-            msg = f"**{name}** is AFK Currently!\n**From :** {time_}"
+            msg = f"**{name}** Sedang Depresi \n**Dari :** {time_}"
             if res_ and isinstance(res_, str):
-                msg += f"\n**Reason :** {res_}"
+                msg += f"\n**Alasan :** {res_}"
             elif res_ and isinstance(res_, Message):
                 await event.reply(res_)
             await event.reply(msg)
@@ -102,9 +102,9 @@ async def make_change(event):
             name = get_display_name(entity)
             res_ = s_der["reason"]
             time_ = time_formatter((dt.now() - s_der["time"]).seconds * 1000)
-            msg = f"**{name}** is AFK Currently!\n**From :** {time_}"
+            msg = f"**{name}** Sedang Depresi \n**Dari :** {time_}"
             if res_ and isinstance(res_, str):
-                msg += f"\n**Reason :** {res_}"
+                msg += f"\n**Alasan :** {res_}"
             elif res_ and isinstance(res_, Message):
                 await event.reply(res_)
             await event.reply(msg)
