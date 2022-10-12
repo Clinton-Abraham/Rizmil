@@ -315,7 +315,7 @@ async def pin_message(ult):
         LOGS.exception(er)
 
 
-@ultroid_cmd(pattern="purge( (.*)|$)", manager=True, require="delete_messages")
+@ultroid_cmd(pattern="pu( (.*)|$)", manager=True, require="delete_messages")
 async def fastpurger(purg):
     match = purg.pattern_match.group(1).strip()
     try:
@@ -350,7 +350,7 @@ async def fastpurger(purg):
 
 
 @ultroid_cmd(
-    pattern="purgeme( (.*)|$)",
+    pattern="peme( (.*)|$)",
 )
 async def fastpurgerme(purg):
     if num := purg.pattern_match.group(1).strip():
@@ -390,7 +390,7 @@ async def fastpurgerme(purg):
 
 
 @ultroid_cmd(
-    pattern="purgeall$",
+    pattern="pa$",
 )
 async def _(e):
     if not e.is_reply:
