@@ -62,7 +62,7 @@ def main():
 
     suc_msg = """
             ----------------------------------------------------------------------
-                Ultroid has been deployed! Visit @TheUltroid for updates!!
+                Rizmil Userbot has been deployed!!
             ----------------------------------------------------------------------
     """
 
@@ -89,7 +89,7 @@ def main():
         pass
 
     LOGS.info(
-        f"Took {time_formatter((time.time() - start_time)*1000)} to start •ULTROID•"
+        f"Took {time_formatter((time.time() - start_time)*1000)} to start •KUNTHUL•"
     )
     LOGS.info(suc_msg)
 
